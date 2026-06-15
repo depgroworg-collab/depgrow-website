@@ -445,10 +445,10 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
     <p style="font-size:16px;color:var(--text-sec);margin-bottom:2rem;line-height:1.7">30 minutes. We find where your business is leaking revenue and what to build first. No pitch. No pressure.</p>
     <div id="con-form">
       <div class="field"><label>Full name *</label><input type="text" id="c-name" placeholder="Your name"/></div>
-      <div class="field"><label>Business name</label><input type="text" placeholder="Company or brand name"/></div>
-      <div class="field"><label>Phone / WhatsApp *</label><input type="tel" placeholder="+91 98765 43210"/></div>
-      <div class="field"><label>Industry</label><select><option value="">Select your industry...</option><option>Real Estate</option><option>Clinics & Healthcare</option><option>Coaches & Consultants</option><option>D2C Brands</option><option>Legal Firms</option><option>E-commerce</option><option>SaaS Startups</option><option>Other</option></select></div>
-      <div class="field"><label>Where are you losing money?</label><textarea placeholder="Leads going cold, manual tasks, low conversions..."></textarea></div>
+      <div class="field"><label>Business name</label><input type="text" id="c-biz" placeholder="Company or brand name"/></div>
+      <div class="field"><label>Phone / WhatsApp *</label><input type="tel" id="c-phone" placeholder="+91 98765 43210"/></div>
+      <div class="field"><label>Industry</label><select id="c-industry"><option value="">Select your industry...</option><option>Real Estate</option><option>Clinics & Healthcare</option><option>Coaches & Consultants</option><option>D2C Brands</option><option>Legal Firms</option><option>E-commerce</option><option>SaaS Startups</option><option>Other</option></select></div>
+      <div class="field"><label>Where are you losing money?</label><textarea id="c-msg" placeholder="Leads going cold, manual tasks, low conversions..."></textarea></div>
       <button class="fsub" onclick="sub()">Book my free call →</button>
     </div>
     <div class="con-success" id="con-ok">
@@ -479,7 +479,7 @@ function renderSols(f){
 function fs(cat,btn){document.querySelectorAll('.sfbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderSols(cat);}
 function goTo(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(id==='solutions')renderSols('all');window.scrollTo(0,0);}
 function tf(el){el.parentElement.classList.toggle('open');}
-function sub(){const n=document.getElementById('c-name').value.trim();const p=document.getElementById('c-phone')?document.getElementById('c-phone').value.trim():'';const b=document.getElementById('c-biz')?document.getElementById('c-biz').value.trim():'';const ind=document.getElementById('c-industry')?document.getElementById('c-industry').value:'';const m=document.getElementById('c-msg')?document.getElementById('c-msg').value.trim():'';if(!n){alert('Please enter your name.');return;}if(!p){alert('Please enter your phone number.');return;}const btn=document.querySelector('.fsub');if(btn){btn.textContent='Sending...';btn.disabled=true;}fetch('https://hook.eu1.make.com/jly9fois7t9ht7fr2rb6qjn3z4av21ki',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,phone:p,business:b,industry:ind,message:m,source:'depgrow.vercel.app',timestamp:new Date().toISOString()})}).catch(e=>console.log(e)).finally(()=>{document.getElementById('con-form').style.display='none';document.getElementById('con-ok').style.display='block';});}
+function sub(){const n=document.getElementById('c-name').value;if(!n){alert('Name enter cheyyu bro!');return;}document.getElementById('con-form').style.display='none';document.getElementById('con-ok').style.display='block';}
 function selLogo(card,name){document.querySelectorAll('.logo-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');document.getElementById('logo-sel-box').style.display='block';document.getElementById('logo-sel-txt').textContent='✓ '+name+' selected! Ready to build in Canva.';}
 </script>
 </body>
