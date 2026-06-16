@@ -8,21 +8,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --green:#0E7A5A;
-  --green-light:#16A97D;
-  --green-tint:#D6F4EC;
-  --green-dark:#0A2E22;
-  --text:#111827;
-  --text-sec:#6B7280;
-  --border:#E5E7EB;
-  --bg:#FFFFFF;
-  --bg2:#F9FAFB;
-  --radius:10px;
-}
+:root{--green:#0E7A5A;--green-light:#16A97D;--green-tint:#D6F4EC;--green-dark:#0A2E22;--text:#111827;--text-sec:#6B7280;--border:#E5E7EB;--bg:#FFFFFF;--bg2:#F9FAFB;--radius:10px;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-
-/* NAV */
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between}
 .nav-brand{font-size:17px;font-weight:700;display:flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none}
 .dep{color:var(--green)}.grow{color:var(--green-light)}
@@ -31,10 +18,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop
 .nav-btn:hover{background:var(--bg2);color:var(--text)}
 .nav-cta{background:var(--green);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;font-family:inherit}
 .nav-cta:hover{background:#0B6649}
-
 .page{display:none}.page.active{display:block}
-
-/* HERO */
 .hero{padding:6rem 2rem 5rem;max-width:720px;margin:0 auto;text-align:center}
 .eyebrow{font-size:11px;letter-spacing:2px;color:var(--text-sec);text-transform:uppercase;margin-bottom:1.5rem;font-weight:500}
 .hero h1{font-size:44px;font-weight:700;line-height:1.1;margin-bottom:1.25rem;letter-spacing:-0.5px}
@@ -45,29 +29,21 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop
 .btn-p:hover{background:#0B6649}
 .btn-s{background:none;color:var(--text);border:1px solid var(--border);padding:12px 24px;border-radius:var(--radius);font-size:15px;cursor:pointer;font-family:inherit}
 .btn-s:hover{background:var(--bg2)}
-
-/* TICKER */
 .ticker-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;white-space:nowrap;margin-bottom:4rem;background:var(--bg2)}
 .ticker-inner{display:inline-flex;animation:tick 26s linear infinite;gap:3rem}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .ticker-item{font-size:13px;color:var(--text-sec);display:inline-flex;align-items:center;gap:8px;font-weight:500}
 .ticker-item i{color:var(--green);font-size:15px}
-
-/* SECTIONS */
 .section{max-width:960px;margin:0 auto 5rem;padding:0 2rem}
 .sec-label{font-size:11px;letter-spacing:2px;color:var(--green);text-transform:uppercase;margin-bottom:0.75rem;font-weight:600}
 .sec-h{font-size:32px;font-weight:700;margin-bottom:0.6rem;letter-spacing:-0.3px}
 .sec-sub{font-size:16px;color:var(--text-sec);margin-bottom:2rem;line-height:1.7}
-
-/* LEAK */
 .leak-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:768px){.leak-grid{grid-template-columns:1fr}}
 .leak-card{background:var(--bg2);border-radius:var(--radius);padding:1.75rem;border:1px solid var(--border)}
 .leak-num{font-size:12px;font-weight:600;color:var(--text-sec);margin-bottom:1rem;letter-spacing:1px}
 .leak-title{font-size:16px;font-weight:600;margin-bottom:0.6rem}
 .leak-desc{font-size:14px;color:var(--text-sec);line-height:1.7}
-
-/* SYSTEMS */
 .sys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:768px){.sys-grid{grid-template-columns:1fr}}
 .sys-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;cursor:pointer;transition:box-shadow 0.15s,border-color 0.15s}
@@ -85,24 +61,18 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop
 .exp-btn:hover{background:var(--bg2)}
 .exp-btn.f{background:var(--green);color:#fff;border:none}
 .exp-btn.f:hover{background:#0B6649}
-
-/* METRICS */
 .metrics{background:var(--green);padding:4rem 2rem;margin-bottom:5rem}
 .metrics-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
 @media(max-width:768px){.metrics-inner{grid-template-columns:repeat(2,1fr)}}
 .metric{padding:2rem 1.5rem;text-align:center}
 .metric-val{font-size:42px;font-weight:700;color:#fff;margin-bottom:6px}
 .metric-lbl{font-size:14px;color:rgba(255,255,255,0.75)}
-
-/* PROCESS */
 .proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media(max-width:768px){.proc-steps{grid-template-columns:repeat(2,1fr)}}
 .proc-step{padding:1.5rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg)}
 .proc-num{font-size:12px;font-weight:700;color:var(--green);margin-bottom:1rem;letter-spacing:1px}
 .proc-step h4{font-size:15px;font-weight:600;margin-bottom:0.5rem}
 .proc-step p{font-size:13px;color:var(--text-sec);line-height:1.6}
-
-/* SOL MINI */
 .sol-mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .sol-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;cursor:pointer;transition:background 0.1s}
 .sol-card:hover{background:var(--bg2)}
@@ -111,16 +81,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop
 .sol-card h4{font-size:15px;font-weight:600;margin-bottom:0.4rem}
 .sol-card p{font-size:13px;color:var(--text-sec);line-height:1.6}
 .view-link{font-size:13px;color:var(--green);display:flex;align-items:center;gap:4px;margin-top:0.75rem;font-weight:500}
-
-/* WHY */
 .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 @media(max-width:768px){.why-grid{grid-template-columns:1fr}}
 .why-card{padding:1.75rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg)}
 .why-card i{font-size:22px;color:var(--green);margin-bottom:1rem;display:block}
 .why-card h4{font-size:16px;font-weight:600;margin-bottom:0.5rem}
 .why-card p{font-size:14px;color:var(--text-sec);line-height:1.7}
-
-/* FAQ */
 .faq-wrap{max-width:680px;margin:0 auto 5rem;padding:0 2rem}
 .faq-item{border-bottom:1px solid var(--border);padding:1.25rem 0}
 .faq-q{font-size:16px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem}
@@ -128,24 +94,18 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop
 .faq-a{font-size:14px;color:var(--text-sec);line-height:1.75;max-height:0;overflow:hidden;transition:max-height 0.3s,padding 0.2s}
 .faq-item.open .faq-a{max-height:200px;padding-top:1rem}
 .faq-item.open .faq-q i{transform:rotate(180deg)}
-
-/* CTA */
 .cta-band{background:var(--green-dark);padding:5rem 2rem;text-align:center}
 .cta-band h2{font-size:32px;font-weight:700;margin-bottom:0.75rem;color:#fff;letter-spacing:-0.3px}
 .cta-band p{font-size:16px;color:rgba(255,255,255,0.7);margin-bottom:2.5rem}
 .btn-white{background:#fff;color:var(--green);border:none;padding:13px 28px;border-radius:var(--radius);font-size:15px;cursor:pointer;font-weight:700;font-family:inherit}
 .btn-white:hover{background:var(--green-tint)}
 .cta-note{font-size:13px;color:rgba(255,255,255,0.5);margin-top:1rem}
-
-/* FOOTER */
 footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .footer-brand{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
 .footer-links{display:flex;gap:1.5rem}
 .footer-links a{font-size:14px;color:var(--text-sec);text-decoration:none;cursor:pointer}
 .footer-links a:hover{color:var(--green)}
 .footer-copy{font-size:13px;color:var(--text-sec)}
-
-/* LOGO PAGE */
 .logo-page{max-width:960px;margin:0 auto;padding:3rem 2rem}
 .logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:2rem}
 @media(max-width:768px){.logo-grid{grid-template-columns:1fr}}
@@ -156,8 +116,6 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
 .logo-name{font-size:15px;font-weight:600;margin-bottom:0.4rem}
 .logo-desc{font-size:13px;color:var(--text-sec);line-height:1.6}
 .color-swatch{width:36px;height:36px;border-radius:8px}
-
-/* INNER PAGES */
 .inner-page{max-width:960px;margin:0 auto;padding:3rem 2rem}
 .sys-detail{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;margin-bottom:1.5rem}
 .sys-detail.feat{border:2px solid var(--green)}
@@ -176,26 +134,12 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
 .val-card{padding:1.5rem;border:1px solid var(--border);border-radius:var(--radius)}
 .val-card h4{font-size:15px;font-weight:600;margin-bottom:0.4rem}
 .val-card p{font-size:13px;color:var(--text-sec);line-height:1.6;margin:0}
-.field{margin-bottom:1.25rem}
-.field label{font-size:14px;color:var(--text-sec);display:block;margin-bottom:6px;font-weight:500}
-.field input,.field select,.field textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius);font-size:15px;background:var(--bg);color:var(--text);font-family:inherit}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
-.field textarea{height:100px;resize:vertical}
-.fsub{background:var(--green);color:#fff;border:none;padding:13px 24px;border-radius:var(--radius);font-size:15px;cursor:pointer;font-weight:700;width:100%;font-family:inherit}
-.fsub:hover{background:#0B6649}
-.con-success{background:var(--green-tint);border:1px solid var(--green);border-radius:var(--radius);padding:2.5rem;text-align:center;display:none}
-.con-success i{font-size:40px;color:var(--green);display:block;margin-bottom:1rem}
 </style>
 </head>
 <body>
-
 <nav>
   <a class="nav-brand" onclick="goTo('home')">
-    <svg width="24" height="24" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <path d="M4 16 C4 16 7 6 11 6 C15 6 18 16 18 16" stroke="#0E7A5A" stroke-width="1.6" stroke-linecap="round"/>
-      <path d="M8 11 C8 11 9.5 14 11 14 C12.5 14 14 11 14 11" stroke="#16A97D" stroke-width="1.6" stroke-linecap="round"/>
-      <circle cx="11" cy="6" r="1.8" fill="#0E7A5A"/>
-    </svg>
+    <svg width="24" height="24" viewBox="0 0 22 22" fill="none"><path d="M4 16 C4 16 7 6 11 6 C15 6 18 16 18 16" stroke="#0E7A5A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 11 C8 11 9.5 14 11 14 C12.5 14 14 11 14 11" stroke="#16A97D" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="6" r="1.8" fill="#0E7A5A"/></svg>
     <span><span class="dep">Dep</span><span class="grow">grow</span></span>
   </a>
   <div class="nav-links">
@@ -220,7 +164,6 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
       <button class="btn-s" onclick="goTo('systems')">Explore systems →</button>
     </div>
   </div>
-
   <div class="ticker-wrap"><div class="ticker-inner">
     <span class="ticker-item"><i class="ti ti-phone"></i>AI Voice Agents</span>
     <span class="ticker-item"><i class="ti ti-bolt"></i>Instant Lead Follow-Up</span>
@@ -237,7 +180,6 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
     <span class="ticker-item"><i class="ti ti-rocket"></i>Landing Pages</span>
     <span class="ticker-item"><i class="ti ti-settings-automation"></i>Workflow Automation</span>
   </div></div>
-
   <div class="section">
     <p class="sec-label">The problem</p>
     <h2 class="sec-h">You're doing everything right. But still losing.</h2>
@@ -248,7 +190,6 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
       <div class="leak-card"><div class="leak-num">03</div><div class="leak-title">Websites that don't convert</div><p class="leak-desc">Traffic lands, looks around, and leaves. Without a capture system, you're handing revenue to competitors.</p></div>
     </div>
   </div>
-
   <div class="section">
     <p class="sec-label">Revenue systems</p>
     <h2 class="sec-h">Three systems. Each solves one expensive problem.</h2>
@@ -259,14 +200,12 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
       <div class="sys-card" onclick="goTo('systems')"><div class="sys-tag">System 3</div><h3>Web capture</h3><p class="sys-desc">Turn passive website visitors into qualified, booked leads.</p><ul class="sys-feats"><li><i class="ti ti-check"></i>High-converting landing page</li><li><i class="ti ti-check"></i>Frictionless lead capture</li><li><i class="ti ti-check"></i>Automated WhatsApp triggers</li><li><i class="ti ti-check"></i>Analytics & tracking</li></ul><div class="sys-price">From ₹50,000 <span>one-time</span></div><button class="exp-btn">Explore →</button></div>
     </div>
   </div>
-
   <div class="metrics"><div class="metrics-inner">
     <div class="metric"><div class="metric-val">60s</div><div class="metric-lbl">Lead response time</div></div>
     <div class="metric"><div class="metric-val">40h</div><div class="metric-lbl">Manual work eliminated</div></div>
     <div class="metric"><div class="metric-val">2×</div><div class="metric-lbl">Average conversion lift</div></div>
     <div class="metric"><div class="metric-val">Zero</div><div class="metric-lbl">Tech headache for you</div></div>
   </div></div>
-
   <div class="section">
     <p class="sec-label">Our process</p>
     <h2 class="sec-h">From first call to live system. In 2 weeks.</h2>
@@ -278,7 +217,6 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
       <div class="proc-step"><div class="proc-num">04</div><h4>Goes live. You grow.</h4><p>Live in 2 weeks. Deep growth starts within 30 days.</p></div>
     </div>
   </div>
-
   <div class="section">
     <p class="sec-label">Individual solutions</p>
     <h2 class="sec-h">Not ready for a full system? Start with one.</h2>
@@ -291,7 +229,6 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
       <div class="sol-card" onclick="goTo('solutions')"><div class="sol-type audit"><i class="ti ti-chart-dots"></i>Audit</div><h4>Business process teardown</h4><p>Complete audit with an exact automation roadmap.</p><div class="view-link"><i class="ti ti-arrow-right"></i>View details</div></div>
     </div>
   </div>
-
   <div class="section">
     <p class="sec-label">Why Depgrow</p>
     <h2 class="sec-h">Why work with us?</h2>
@@ -302,7 +239,6 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
       <div class="why-card"><i class="ti ti-shield-check"></i><h4>Zero technical headaches</h4><p>You run your business. We build, integrate, and maintain everything.</p></div>
     </div>
   </div>
-
   <div class="faq-wrap">
     <p class="sec-label" style="margin-bottom:0.75rem">FAQ</p>
     <h2 class="sec-h" style="margin-bottom:1.5rem">Clear answers. No jargon.</h2>
@@ -312,14 +248,12 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
     <div class="faq-item"><div class="faq-q" onclick="tf(this)">What if the AI gives wrong information?<i class="ti ti-chevron-down"></i></div><div class="faq-a">We train the AI only on information you provide and approve. Anything outside scope gets escalated to a human automatically.</div></div>
     <div class="faq-item"><div class="faq-q" onclick="tf(this)">How do you charge?<i class="ti ti-chevron-down"></i></div><div class="faq-a">Fixed price per project. You know the exact cost before we start. No hourly billing, no surprise invoices.</div></div>
   </div>
-
   <div class="cta-band">
     <h2>Your revenue leak has a fix.<br>Let's grow deeper.</h2>
     <p>Book a free 30-minute strategy call. We'll show you exactly where you're losing money.</p>
     <button class="btn-white" onclick="goTo('contact')">Book free call — no obligation</button>
     <p class="cta-note">No pitch. No pressure. Just clarity.</p>
   </div>
-
   <footer>
     <div class="footer-brand"><svg width="16" height="16" viewBox="0 0 22 22" fill="none"><path d="M4 16 C4 16 7 6 11 6 C15 6 18 16 18 16" stroke="#0E7A5A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 11 C8 11 9.5 14 11 14 C12.5 14 14 11 14 11" stroke="#16A97D" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="6" r="1.8" fill="#0E7A5A"/></svg><span><span class="dep">Dep</span><span class="grow">grow</span></span></div>
     <div class="footer-links"><a onclick="goTo('home')">Home</a><a onclick="goTo('systems')">Systems</a><a onclick="goTo('solutions')">Solutions</a><a onclick="goTo('contact')">Contact</a></div>
@@ -332,52 +266,26 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
   <div class="logo-page">
     <p class="sec-label" style="margin-bottom:0.5rem">Logo concepts</p>
     <h1 style="font-size:32px;font-weight:700;margin-bottom:0.5rem">3 logo directions for Depgrow.</h1>
-    <p style="font-size:16px;color:var(--text-sec);margin-bottom:0.5rem">Click to select. Canva or Figma lo exact ga build cheyyadam possible.</p>
+    <p style="font-size:16px;color:var(--text-sec);margin-bottom:0.5rem">Click to select. Build in Canva or Figma.</p>
     <div class="logo-grid">
       <div class="logo-card" onclick="selLogo(this,'Concept A — Growth plant')">
-        <div class="logo-preview">
-          <svg width="160" height="44" viewBox="0 0 160 44" fill="none">
-            <path d="M8 36 C8 36 11 20 16 15 C21 10 25 20 25 20" stroke="#0E7A5A" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M14 24 C14 24 16.5 28 18.5 28 C20.5 28 23 24 23 24" stroke="#16A97D" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="16" cy="15" r="2.2" fill="#0E7A5A"/>
-            <line x1="16.5" y1="36" x2="16.5" y2="40" stroke="#0E7A5A" stroke-width="1.8" stroke-linecap="round"/>
-            <text x="38" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#0E7A5A">Dep</text>
-            <text x="79" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#16A97D">grow</text>
-          </svg>
-        </div>
+        <div class="logo-preview"><svg width="160" height="44" viewBox="0 0 160 44" fill="none"><path d="M8 36 C8 36 11 20 16 15 C21 10 25 20 25 20" stroke="#0E7A5A" stroke-width="1.8" stroke-linecap="round"/><path d="M14 24 C14 24 16.5 28 18.5 28 C20.5 28 23 24 23 24" stroke="#16A97D" stroke-width="1.8" stroke-linecap="round"/><circle cx="16" cy="15" r="2.2" fill="#0E7A5A"/><line x1="16.5" y1="36" x2="16.5" y2="40" stroke="#0E7A5A" stroke-width="1.8" stroke-linecap="round"/><text x="38" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#0E7A5A">Dep</text><text x="79" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#16A97D">grow</text></svg></div>
         <div class="logo-name">Concept A — Growth plant</div>
-        <p class="logo-desc">Abstract plant/roots shape — deep roots, upward growth. Brand meaning ki exact match. "Dep" dark green, "grow" light green. Most recommended.</p>
+        <p class="logo-desc">Abstract plant/roots — deep roots, upward growth. Most recommended.</p>
       </div>
       <div class="logo-card" onclick="selLogo(this,'Concept B — Rising arrow')">
-        <div class="logo-preview">
-          <svg width="160" height="44" viewBox="0 0 160 44" fill="none">
-            <rect x="2" y="4" width="36" height="36" rx="9" fill="#D6F4EC"/>
-            <path d="M11 30 L20 14 L29 30" stroke="#0E7A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M14 24 L20 14 L26 24" fill="#0E7A5A" opacity="0.25"/>
-            <text x="46" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#0E7A5A">Dep</text>
-            <text x="87" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#16A97D">grow</text>
-          </svg>
-        </div>
+        <div class="logo-preview"><svg width="160" height="44" viewBox="0 0 160 44" fill="none"><rect x="2" y="4" width="36" height="36" rx="9" fill="#D6F4EC"/><path d="M11 30 L20 14 L29 30" stroke="#0E7A5A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 24 L20 14 L26 24" fill="#0E7A5A" opacity="0.25"/><text x="46" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#0E7A5A">Dep</text><text x="87" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#16A97D">grow</text></svg></div>
         <div class="logo-name">Concept B — Rising arrow</div>
-        <p class="logo-desc">Green square with upward triangle — growth direction, momentum. Bold and clean. App icon, favicon ki perfect. Modern SaaS feel.</p>
+        <p class="logo-desc">Green square with upward triangle — bold, clean. App icon ki perfect.</p>
       </div>
       <div class="logo-card" onclick="selLogo(this,'Concept C — D monogram')">
-        <div class="logo-preview">
-          <svg width="160" height="44" viewBox="0 0 160 44" fill="none">
-            <circle cx="21" cy="22" r="18" stroke="#0E7A5A" stroke-width="1.4" fill="#D6F4EC"/>
-            <text x="13" y="30" font-family="Arial" font-size="20" font-weight="800" fill="#0E7A5A">D</text>
-            <path d="M24 15 C31 15 35 18.5 35 22 C35 25.5 31 29 24 29" stroke="#16A97D" stroke-width="1.6" stroke-linecap="round"/>
-            <text x="48" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#0E7A5A">Dep</text>
-            <text x="89" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#16A97D">grow</text>
-          </svg>
-        </div>
+        <div class="logo-preview"><svg width="160" height="44" viewBox="0 0 160 44" fill="none"><circle cx="21" cy="22" r="18" stroke="#0E7A5A" stroke-width="1.4" fill="#D6F4EC"/><text x="13" y="30" font-family="Arial" font-size="20" font-weight="800" fill="#0E7A5A">D</text><path d="M24 15 C31 15 35 18.5 35 22 C35 25.5 31 29 24 29" stroke="#16A97D" stroke-width="1.6" stroke-linecap="round"/><text x="48" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#0E7A5A">Dep</text><text x="89" y="30" font-family="Arial" font-size="20" font-weight="700" fill="#16A97D">grow</text></svg></div>
         <div class="logo-name">Concept C — D monogram</div>
-        <p class="logo-desc">Circle tho "D" monogram — sophisticated, premium feel. LinkedIn, business cards, proposal docs ki perfect. Agency credibility ki best.</p>
+        <p class="logo-desc">Circle with "D" monogram — premium, sophisticated. Agency credibility.</p>
       </div>
     </div>
     <div id="logo-sel-box" style="display:none;margin-top:1.5rem;background:var(--green-tint);border:1px solid var(--green);border-radius:var(--radius);padding:1.5rem">
       <p style="font-size:14px;color:var(--green);font-weight:600" id="logo-sel-txt"></p>
-      <p style="font-size:13px;color:var(--text-sec);margin-top:6px">Canva lo step-by-step guide kavali ante cheppandi — exact ga build chestanu!</p>
     </div>
     <div style="margin-top:2rem;padding:1.75rem;border:1px solid var(--border);border-radius:var(--radius)">
       <p class="sec-label" style="margin-bottom:1rem">Brand color palette</p>
@@ -444,17 +352,16 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
     <h1 style="font-size:32px;font-weight:700;margin-bottom:0.5rem">Book a free strategy call.</h1>
     <p style="font-size:16px;color:var(--text-sec);margin-bottom:2rem;line-height:1.7">30 minutes. We find where your business is leaking revenue and what to build first. No pitch. No pressure.</p>
     <div id="con-form">
-      <div class="field"><label>Full name *</label><input type="text" id="c-name" placeholder="Your name"/></div>
-      <div class="field"><label>Business name</label><input type="text" id="c-biz" placeholder="Company or brand name"/></div>
-      <div class="field"><label>Phone / WhatsApp *</label><input type="tel" id="c-phone" placeholder="+91 98765 43210"/></div>
-      <div class="field"><label>Industry</label><select id="c-industry"><option value="">Select your industry...</option><option>Real Estate</option><option>Clinics & Healthcare</option><option>Coaches & Consultants</option><option>D2C Brands</option><option>Legal Firms</option><option>E-commerce</option><option>SaaS Startups</option><option>Other</option></select></div>
-      <div class="field"><label>Where are you losing money?</label><textarea id="c-msg" placeholder="Leads going cold, manual tasks, low conversions..."></textarea></div>
-      <button class="fsub" onclick="sub()">Book my free call →</button>
-    </div>
-    <div class="con-success" id="con-ok">
-      <i class="ti ti-check-circle"></i>
-      <h3 style="font-size:22px;font-weight:700;margin-bottom:0.5rem">You're booked! 🎉</h3>
-      <p style="font-size:15px;color:var(--text-sec)">We'll WhatsApp you within 2 hours to confirm your call time. Talk soon.</p>
+      <iframe
+        data-tally-src="https://tally.so/embed/7RPzk6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="500"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Book a Free Strategy Call">
+      </iframe>
     </div>
   </div>
 </div>
@@ -477,10 +384,29 @@ function renderSols(f){
   g.innerHTML=list.map(s=>`<div class="sol-card"><div class="sol-type ${s.cat}"><i class="ti ${s.icon}"></i>${s.label}</div><h4>${s.title}</h4><p>${s.desc}</p><div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem"><span style="font-size:17px;font-weight:700">${s.price}</span><button onclick="goTo('contact')" style="font-size:13px;color:var(--green);background:none;border:none;cursor:pointer;font-weight:600;font-family:inherit">Get started →</button></div></div>`).join('');
 }
 function fs(cat,btn){document.querySelectorAll('.sfbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderSols(cat);}
-function goTo(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');if(id==='solutions')renderSols('all');window.scrollTo(0,0);}
+function goTo(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  if(id==='solutions')renderSols('all');
+  if(id==='contact')loadTally();
+  window.scrollTo(0,0);
+}
 function tf(el){el.parentElement.classList.toggle('open');}
-function sub(){const n=document.getElementById('c-name').value;if(!n){alert('Name enter cheyyu bro!');return;}document.getElementById('con-form').style.display='none';document.getElementById('con-ok').style.display='block';}
 function selLogo(card,name){document.querySelectorAll('.logo-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');document.getElementById('logo-sel-box').style.display='block';document.getElementById('logo-sel-txt').textContent='✓ '+name+' selected! Ready to build in Canva.';}
+
+function loadTally(){
+  var d=document,w="https://tally.so/widgets/embed.js",
+  v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
+  if("undefined"!=typeof Tally)v();
+  else if(d.querySelector('script[src="'+w+'"]')==null){
+    var s=d.createElement("script");
+    s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);
+  } else {
+    v();
+  }
+}
+// Load Tally immediately on page load too, in case contact is the active page on load
+loadTally();
 </script>
 </body>
 </html>
