@@ -520,7 +520,11 @@ async function sendChat(){
   try{
     const res=await fetch('https://api.anthropic.com/v1/messages',{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      headers: {
+  'Content-Type': 'application/json',
+  'x-api-key': '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',
+  'anthropic-version': '2023-06-01'
+},
       body:JSON.stringify({
         model:'claude-sonnet-4-6',
         max_tokens:1000,
