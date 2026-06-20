@@ -518,35 +518,10 @@ async function sendChat(){
   input.value='';
   showTyping();
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('/api/chat',{
       method:'POST',
-      headers: {
-  'Content-Type': 'application/json',
-  'x-api-key': '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',
-  'anthropic-version': '2023-06-01'
-},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-6',
-        max_tokens:1000,
-        system:`You are the AI agent for Depgrow, an AI automation agency. You help potential clients understand what Depgrow builds and encourage them to book a free strategy call.
-
-WHAT DEPGROW BUILDS:
-- Revenue Capture System (₹60,000 one-time): AI voice agent 24/7, WhatsApp & SMS bot, CRM sync, lead qualification
-- Ops Efficiency System (₹1,00,000 one-time): 3-5 workflow automations, n8n/Make, reporting dashboard, team training
-- Web Capture System (₹50,000 one-time): High-converting landing page, lead capture, WhatsApp triggers, analytics
-
-Individual solutions from ₹14,999: instant lead follow-up, inbound AI receptionist, appointment booking bot, WhatsApp sequences, outbound AI caller, CRM auto-population, and more.
-
-KEY FACTS:
-- Live in 2 weeks
-- Fixed price, no surprises
-- No need to replace existing software
-- ROI measured in hours saved and revenue generated
-- Free 30-min strategy call available
-
-Be friendly, concise, and helpful. End responses with a nudge to book the free call. Keep replies under 100 words. If someone asks something outside your knowledge, invite them to book a call.`,
-        messages:[{role:'user',content:text}]
-      })
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text})
     });
     const data=await res.json();
     removeTyping();
