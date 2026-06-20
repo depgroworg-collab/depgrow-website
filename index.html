@@ -169,6 +169,191 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
 /* CTA band WhatsApp button */
 .btn-wa-cta{background:#25D366;color:#fff;border:none;padding:13px 28px;border-radius:var(--radius);font-size:15px;cursor:pointer;font-weight:700;font-family:inherit;display:inline-flex;align-items:center;gap:8px;text-decoration:none;margin-left:12px}
 .btn-wa-cta:hover{background:#1ebe5d}
+
+/* ========== NEW: ANIMATED HERO (dark, orbit diagram) ========== */
+.hero2{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 60% 50% at 18% 10%, rgba(26,255,156,0.10), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 85% 80%, rgba(63,208,255,0.08), transparent 60%),
+    linear-gradient(180deg,#040a08 0%,#06120e 55%,#040a08 100%);
+  padding:80px 2rem 70px;
+}
+#particles2{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero2-grid{
+  position:relative;z-index:2;max-width:1180px;margin:0 auto;
+  display:grid;grid-template-columns:1.05fr 0.95fr;gap:2rem;align-items:center;
+}
+@media(max-width:980px){.hero2-grid{grid-template-columns:1fr;text-align:center}}
+
+.hero2-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2.5px;
+  text-transform:uppercase;color:#1aff9c;font-weight:700;margin-bottom:20px;
+  background:rgba(26,255,156,0.08);border:1px solid rgba(26,255,156,0.25);
+  padding:7px 16px;border-radius:30px;
+}
+.hero2-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#1aff9c;box-shadow:0 0 8px #1aff9c}
+@media(max-width:980px){.hero2-eyebrow{margin-left:auto;margin-right:auto}}
+
+.hero2-h1{font-size:clamp(34px,4.4vw,54px);font-weight:800;line-height:1.1;letter-spacing:-1px;color:#fff;margin-bottom:18px}
+.hero2-h1 .leak{
+  background:linear-gradient(100deg,#1aff9c,#3fd0ff);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero2-sub{font-size:16.5px;color:#9ab8ad;line-height:1.75;margin-bottom:32px;max-width:480px}
+@media(max-width:980px){.hero2-sub{margin-left:auto;margin-right:auto}}
+.hero2-actions{display:flex;gap:14px;flex-wrap:wrap}
+@media(max-width:980px){.hero2-actions{justify-content:center}}
+.hero2-btn-p{
+  background:linear-gradient(100deg,#0E7A5A,#16A97D);color:#fff;border:none;padding:14px 26px;
+  border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;
+  box-shadow:0 8px 24px rgba(26,255,156,0.25);
+}
+.hero2-btn-p:hover{filter:brightness(1.08)}
+.hero2-btn-s{
+  background:rgba(255,255,255,0.04);color:#fff;border:1px solid rgba(255,255,255,0.18);
+  padding:14px 26px;border-radius:10px;font-size:15px;cursor:pointer;font-family:inherit;font-weight:600;
+}
+.hero2-btn-s:hover{background:rgba(255,255,255,0.08)}
+
+/* orbit stage (right side, scaled down) */
+.stage2{position:relative;width:100%;max-width:480px;aspect-ratio:1/0.96;margin:0 auto;z-index:2}
+.stage2-inner{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+.guide-ring2{position:absolute;border:1px dashed rgba(26,255,156,0.14);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+svg.connections2{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.conn-line2{fill:none;stroke:url(#lineGrad2);stroke-width:1.3;stroke-dasharray:6 5;animation:dashMove2 3.5s linear infinite;opacity:0.55}
+@keyframes dashMove2{to{stroke-dashoffset:-110}}
+
+.hub2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:150px;height:150px;display:flex;align-items:center;justify-content:center;z-index:5}
+.hub2-ring{position:absolute;border-radius:50%;border:1px solid rgba(26,255,156,0.3);animation:ringPulse2 4s ease-in-out infinite}
+.hub2-ring.r1{inset:-12px}
+.hub2-ring.r2{inset:-26px;animation-delay:0.6s;border-color:rgba(63,208,255,0.18)}
+.hub2-ring.r3{inset:-42px;animation-delay:1.2s;border-color:rgba(26,255,156,0.1)}
+@keyframes ringPulse2{0%,100%{opacity:0.3;transform:scale(1)}50%{opacity:0.85;transform:scale(1.035)}}
+.hub2-core{
+  position:relative;width:100%;height:100%;border-radius:50%;
+  background:radial-gradient(circle at 50% 38%,rgba(26,255,156,0.18),rgba(4,10,8,0.96) 72%);
+  border:1.5px solid rgba(26,255,156,0.55);
+  box-shadow:0 0 44px rgba(26,255,156,0.25),inset 0 0 28px rgba(26,255,156,0.08);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;
+  animation:hubFloat2 6s ease-in-out infinite;
+}
+@keyframes hubFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.hub2-core h2{font-size:13px;font-weight:800;letter-spacing:-0.2px;line-height:1.2;color:#fff}
+.hub2-core h2 span{display:block;background:linear-gradient(100deg,#1aff9c,#3fd0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hub2-core p{font-size:9px;color:#9ab8ad;margin-top:4px}
+
+.node2{position:absolute;width:80px;height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:4;cursor:pointer}
+.node2-float{animation:nodeFloat2 5s ease-in-out infinite}
+@keyframes nodeFloat2{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.node2-circle{
+  width:60px;height:60px;border-radius:50%;
+  background:radial-gradient(circle at 50% 35%,rgba(26,255,156,0.1),rgba(5,14,11,0.92) 75%);
+  border:1.2px solid rgba(26,255,156,0.4);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 18px rgba(26,255,156,0.12);transition:box-shadow 0.35s,border-color 0.35s,transform 0.35s;
+}
+.node2-circle svg{width:19px;height:19px;color:#1aff9c}
+.node2:hover .node2-circle{border-color:#1aff9c;box-shadow:0 0 32px rgba(26,255,156,0.45);transform:scale(1.08)}
+.node2-label{margin-top:7px;font-size:10.5px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:#fff;white-space:nowrap}
+
+.n2-leads{top:4%;left:6%}
+.n2-followup{top:4%;right:6%}
+.n2-bookings{top:46%;right:0}
+.n2-whatsapp{top:80%;left:50%;transform:translateX(-50%)}
+.n2-calls{top:46%;left:0}
+
+.info2-card{
+  position:absolute;width:172px;background:rgba(8,24,19,0.85);backdrop-filter:blur(14px);
+  border:1px solid rgba(26,255,156,0.22);border-radius:12px;padding:14px 15px;
+  opacity:0;visibility:hidden;transform:translateY(6px) scale(0.96);
+  transition:opacity 0.3s,transform 0.3s,visibility 0.3s;z-index:6;pointer-events:none;
+  box-shadow:0 14px 34px rgba(0,0,0,0.45);
+}
+.node2:hover + .info2-card,.info2-card:hover{opacity:1;visibility:visible;transform:translateY(0) scale(1);pointer-events:auto}
+.info2-card h4{font-size:11.5px;font-weight:700;color:#1aff9c;margin-bottom:8px;line-height:1.4}
+.info2-card ul{list-style:none}
+.info2-card li{font-size:11px;color:#dff7ec;padding:3px 0;display:flex;align-items:center;gap:6px}
+.info2-card li::before{content:'';width:11px;height:11px;flex-shrink:0;border-radius:50%;background:rgba(26,255,156,0.12);border:1px solid rgba(26,255,156,0.5)}
+
+.ic2-leads{top:0;left:-6%}
+.ic2-followup{top:0;right:-6%}
+.ic2-bookings{top:40%;right:-32%}
+.ic2-whatsapp{top:84%;left:50%;transform:translateX(-50%)}
+.ic2-calls{top:40%;left:-32%}
+
+.chip2{
+  position:absolute;top:64%;left:50%;transform:translateX(-50%);
+  background:rgba(6,18,14,0.85);border:1px solid rgba(26,255,156,0.3);border-radius:8px;
+  padding:5px 12px;font-size:8.5px;font-weight:700;letter-spacing:1px;color:#9ab8ad;
+  white-space:nowrap;z-index:5;backdrop-filter:blur(6px);
+}
+.chip2 span{color:#1aff9c}
+
+@media(max-width:980px){
+  .stage2{max-width:380px;margin-top:2.5rem}
+}
+@media(max-width:600px){
+  .hero2{padding:60px 1.25rem 50px}
+  .n2-leads{top:0;left:0}.n2-followup{top:0;right:0}
+  .n2-calls{top:38%;left:-6%}.n2-bookings{top:38%;right:-6%}
+  .n2-whatsapp{top:72%}
+  .ic2-leads{left:-12%}.ic2-followup{right:-12%}
+  .ic2-calls{left:-46%}.ic2-bookings{right:-46%}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero2 *{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+}
+
+/* ========== NEW: FREE AUDIT FORM ========== */
+.audit-card{
+  position:relative;background:#fff;border:1.5px solid var(--green-tint);border-radius:24px;
+  padding:2.75rem 2.25rem 2.25rem;box-shadow:0 20px 60px rgba(14,122,90,0.08);overflow:hidden;
+}
+.audit-dots{position:absolute;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;z-index:0}
+.audit-dots span{width:4px;height:4px;border-radius:50%;background:var(--green-light);opacity:0.45}
+.dots-tl{top:-1.75rem;left:-1.75rem}
+.dots-br{bottom:-1.75rem;right:-1.75rem}
+.audit-h2{position:relative;z-index:1;font-size:27px;font-weight:800;text-align:center;letter-spacing:-0.4px;color:var(--text);margin-bottom:10px}
+.audit-h2 span{color:var(--green)}
+.audit-sub{position:relative;z-index:1;text-align:center;color:var(--text-sec);font-size:14.5px;line-height:1.6;margin-bottom:2rem}
+.audit-sub i{font-style:normal;color:var(--green-light);opacity:0.6;margin:0 4px}
+
+#audit-form{position:relative;z-index:1}
+.af-field{margin-bottom:1.25rem}
+.af-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.af-row{grid-template-columns:1fr}}
+.af-field label{display:block;font-size:13.5px;font-weight:700;color:var(--green);margin-bottom:8px}
+.af-field label .req{color:var(--green)}
+.af-input{
+  position:relative;display:flex;align-items:center;border:1.5px solid var(--border);
+  border-radius:11px;background:#fff;transition:border-color 0.2s,box-shadow 0.2s;
+}
+.af-input:focus-within{border-color:var(--green);box-shadow:0 0 0 3px var(--green-tint)}
+.af-input svg{width:18px;height:18px;color:var(--green-light);flex-shrink:0;margin-left:14px;pointer-events:none}
+.af-input input,.af-input select,.af-input textarea{
+  flex:1;border:none;outline:none;background:transparent;font-family:inherit;
+  font-size:14.5px;color:var(--text);padding:13px 14px;width:100%;
+}
+.af-input input::placeholder,.af-input textarea::placeholder{color:#9CA3AF}
+.af-select select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:34px;color:var(--text)}
+.af-select select:invalid{color:#9CA3AF}
+.af-chevron{margin-left:-30px!important;margin-right:12px;pointer-events:none}
+.af-textarea{align-items:flex-start}
+.af-textarea svg{margin-top:14px}
+.af-textarea textarea{resize:vertical;min-height:70px;line-height:1.6;font-family:inherit}
+.af-submit{
+  width:100%;background:linear-gradient(100deg,#0E7A5A,#16A97D);color:#fff;border:none;
+  padding:16px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;
+  display:flex;align-items:center;justify-content:center;gap:9px;margin-top:0.5rem;
+  box-shadow:0 10px 28px rgba(14,122,90,0.28);transition:filter 0.2s,transform 0.15s;
+}
+.af-submit:hover{filter:brightness(1.06)}
+.af-submit:active{transform:scale(0.99)}
+.af-submit svg{width:18px;height:18px}
+.af-secure{
+  display:flex;align-items:center;justify-content:center;gap:7px;margin-top:1.1rem;
+  font-size:12.5px;color:var(--text-sec);
+}
+.af-secure svg{width:14px;height:14px;color:var(--green)}
 </style>
 </head>
 <body>
@@ -190,15 +375,80 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
 
 <!-- HOME -->
 <div id="page-home" class="page active">
-  <div class="hero">
-    <p class="eyebrow">Deep systems. Real growth.</p>
-    <h1>Your business is <em>leaking revenue.</em><br>We grow it deeper.</h1>
-    <p class="hero-sub">AI automations, voice agents, and web systems — engineered around your outcomes, not our deliverables.</p>
-    <div class="hero-actions">
-      <button class="btn-p" onclick="goTo('contact')">&#128222; Book free strategy call</button>
-      <button class="btn-s" onclick="goTo('systems')">Explore systems →</button>
+  <section class="hero2">
+    <canvas id="particles2"></canvas>
+    <div class="hero2-grid">
+      <div>
+        <div class="hero2-eyebrow"><span class="dot"></span>SYSTEMS THAT OUTGROW</div>
+        <h1 class="hero2-h1">Your business is <span class="leak">leaking revenue.</span><br>We grow it deeper.</h1>
+        <p class="hero2-sub">AI automations, voice agents, and web systems — engineered around your outcomes, not our deliverables.</p>
+        <div class="hero2-actions">
+          <button class="hero2-btn-p" onclick="goTo('contact')">&#128222; Book free strategy call</button>
+          <button class="hero2-btn-s" onclick="goTo('systems')">Explore systems →</button>
+        </div>
+      </div>
+
+      <div class="stage2" id="stage2">
+        <div class="guide-ring2" style="width:80%;height:80%"></div>
+        <div class="guide-ring2" style="width:110%;height:110%"></div>
+        <svg class="connections2" viewBox="0 0 480 460" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1aff9c" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#3fd0ff" stop-opacity="0.4"/>
+            </linearGradient>
+          </defs>
+          <path class="conn-line2" d="M 70 52 L 240 230"/>
+          <path class="conn-line2" d="M 410 52 L 240 230"/>
+          <path class="conn-line2" d="M 32 230 L 240 230"/>
+          <path class="conn-line2" d="M 448 230 L 240 230"/>
+          <path class="conn-line2" d="M 240 368 L 240 230"/>
+        </svg>
+        <div class="stage2-inner" id="stage2Inner">
+          <div class="hub2">
+            <div class="hub2-ring r1"></div>
+            <div class="hub2-ring r2"></div>
+            <div class="hub2-ring r3"></div>
+            <div class="hub2-core">
+              <h2>YOUR<span>BUSINESS</span></h2>
+              <p>We grow it deeper.</p>
+            </div>
+          </div>
+          <div class="chip2">DEEP SYSTEMS. <span>REAL GROWTH.</span></div>
+
+          <div class="node2 node2-float n2-leads" style="animation-delay:0s">
+            <div class="node2-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="node2-label">Leads</div>
+          </div>
+          <div class="info2-card ic2-leads"><h4>We attract the right leads.</h4><ul><li>Meta Ads</li><li>Google Ads</li><li>Landing Pages</li><li>Lead Magnets</li></ul></div>
+
+          <div class="node2 node2-float n2-followup" style="animation-delay:0.8s">
+            <div class="node2-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+            <div class="node2-label">Follow-Up</div>
+          </div>
+          <div class="info2-card ic2-followup"><h4>We follow up automatically.</h4><ul><li>Email Sequences</li><li>SMS Reminders</li><li>Smart Workflows</li><li>Nurture &amp; Engage</li></ul></div>
+
+          <div class="node2 node2-float n2-bookings" style="animation-delay:1.6s">
+            <div class="node2-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div class="node2-label">Bookings</div>
+          </div>
+          <div class="info2-card ic2-bookings"><h4>We turn interest into bookings.</h4><ul><li>Calendar Sync</li><li>Auto Reminders</li><li>Rescheduling</li><li>Reduce No-Shows</li></ul></div>
+
+          <div class="node2 node2-float n2-whatsapp" style="animation-delay:2.4s">
+            <div class="node2-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm0 18.13h-.01c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.53 3.69-8.22 8.27-8.22 2.21 0 4.28.86 5.84 2.42a8.2 8.2 0 0 1 2.42 5.83c0 4.53-3.7 8.19-8.27 8.19zm4.52-6.15c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.99-1.22-.73-.66-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.41 1.02 2.58.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg></div>
+            <div class="node2-label">WhatsApp</div>
+          </div>
+          <div class="info2-card ic2-whatsapp"><h4>We close conversations that convert.</h4><ul><li>WhatsApp Automation</li><li>Instant Replies</li><li>Chat Flows</li><li>Human Hand-off</li></ul></div>
+
+          <div class="node2 node2-float n2-calls" style="animation-delay:3.2s">
+            <div class="node2-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="node2-label">24/7 Calls</div>
+          </div>
+          <div class="info2-card ic2-calls"><h4>We never miss a call.</h4><ul><li>AI Voice Agents</li><li>Call Handling</li><li>Qualify Leads</li><li>Book Appointments</li></ul></div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
   <div class="ticker-wrap"><div class="ticker-inner">
     <span class="ticker-item"><i class="ti ti-phone"></i>AI Voice Agents</span>
     <span class="ticker-item"><i class="ti ti-bolt"></i>Instant Lead Follow-Up</span>
@@ -384,11 +634,94 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
 <!-- CONTACT PAGE -->
 <div id="page-contact" class="page">
   <div class="inner-page" style="max-width:560px">
-    <p class="sec-label" style="margin-bottom:0.5rem">Contact</p>
-    <h1 style="font-size:32px;font-weight:700;margin-bottom:0.5rem">Book a free strategy call.</h1>
-    <p style="font-size:16px;color:var(--text-sec);margin-bottom:2rem;line-height:1.7">30 minutes. We find where your business is leaking revenue and what to build first. No pitch. No pressure.</p>
-    <div id="con-form">
-      <iframe data-tally-src="https://tally.so/embed/7RPzk6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Book a Free Strategy Call"></iframe>
+    <div class="audit-card">
+      <div class="audit-dots dots-tl"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="audit-dots dots-br"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+      <h2 class="audit-h2">Book Your <span>Free Revenue Audit</span></h2>
+      <p class="audit-sub"><i>—</i> Let's uncover what's leaking and build your growth system. <i>—</i></p>
+
+      <form id="audit-form" onsubmit="submitAudit(event)">
+        <div class="af-field">
+          <label>Name <span class="req">*</span></label>
+          <div class="af-input">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <input type="text" id="af-name" placeholder="Your full name" required/>
+          </div>
+        </div>
+
+        <div class="af-field">
+          <label>Business Name <span class="req">*</span></label>
+          <div class="af-input">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M10 9h.01"/><path d="M14 9h.01"/><path d="M10 13h.01"/><path d="M14 13h.01"/><path d="M10 17h.01"/><path d="M14 17h.01"/></svg>
+            <input type="text" id="af-business" placeholder="Your company name" required/>
+          </div>
+        </div>
+
+        <div class="af-field">
+          <label>Email <span class="req">*</span></label>
+          <div class="af-input">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <input type="email" id="af-email" placeholder="you@company.com" required/>
+          </div>
+        </div>
+
+        <div class="af-field">
+          <label>Phone (WhatsApp preferred) <span class="req">*</span></label>
+          <div class="af-input">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 5.5c4.4 0 8 3.6 8 8M13.5 9.5a4 4 0 0 1 4 4M3.5 5.5C5 5 6 4 7 3.5c1-.4 1.5 0 2 .5l1.5 2c.4.6.3 1.2-.2 1.7L9 9c-.4.5-.4 1 0 1.5 1 1.5 2.5 3 4 4 .5.4 1 .4 1.5 0l1.3-1.3c.5-.5 1.1-.6 1.7-.2l2 1.5c.5.5.9 1 .5 2-.5 1-1.5 2-2 3.5-3.5-.2-7-2-9.7-4.7C5.5 12.5 3.7 9 3.5 5.5Z"/></svg>
+            <input type="tel" id="af-phone" placeholder="+91 98765 43210" required/>
+          </div>
+        </div>
+
+        <div class="af-row">
+          <div class="af-field">
+            <label>Business Type <span class="req">*</span></label>
+            <div class="af-input af-select">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <select id="af-type" required>
+                <option value="" disabled selected>Select type</option>
+                <option>Real Estate</option>
+                <option>Clinic</option>
+                <option>Coaching</option>
+                <option>D2C</option>
+                <option>Legal</option>
+                <option>SaaS</option>
+                <option>E-commerce</option>
+                <option>Other</option>
+              </select>
+              <svg class="af-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="af-field">
+            <label>Business Size <span class="req">*</span></label>
+            <div class="af-input af-select">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <select id="af-size" required>
+                <option value="" disabled selected>Select size</option>
+                <option>Solo (1 person)</option>
+                <option>2-10 employees</option>
+                <option>11-50 employees</option>
+                <option>51-200 employees</option>
+                <option>200+ employees</option>
+              </select>
+              <svg class="af-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="af-field">
+          <label>Biggest Challenge <span class="req">*</span></label>
+          <div class="af-input af-textarea">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <textarea id="af-challenge" rows="3" placeholder="What is the biggest operational or growth challenge your business faces right now?" required></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="af-submit">Book My Free Audit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+
+        <p class="af-secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Your information is 100% secure and private.</p>
+      </form>
     </div>
   </div>
 </div>
@@ -451,18 +784,96 @@ function goTo(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   if(id==='solutions')renderSols('all');
-  if(id==='contact')loadTally();
   window.scrollTo(0,0);
 }
 function tf(el){el.parentElement.classList.toggle('open');}
 function selLogo(card,name){document.querySelectorAll('.logo-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');document.getElementById('logo-sel-box').style.display='block';document.getElementById('logo-sel-txt').textContent='✓ '+name+' selected! Ready to build in Canva.';}
-function loadTally(){
-  var d=document,w="https://tally.so/widgets/embed.js",
-  v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
-  if("undefined"!=typeof Tally)v();
-  else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}else{v();}
+
+/* ========== FREE AUDIT FORM -> WHATSAPP ========== */
+function submitAudit(e){
+  e.preventDefault();
+  const name=document.getElementById('af-name').value.trim();
+  const business=document.getElementById('af-business').value.trim();
+  const email=document.getElementById('af-email').value.trim();
+  const phone=document.getElementById('af-phone').value.trim();
+  const type=document.getElementById('af-type').value;
+  const size=document.getElementById('af-size').value;
+  const challenge=document.getElementById('af-challenge').value.trim();
+
+  const msg=`Hi Depgrow, I'd like to book a Free Revenue Audit.
+
+Name: ${name}
+Business: ${business}
+Email: ${email}
+Phone: ${phone}
+Business Type: ${type}
+Business Size: ${size}
+Biggest Challenge: ${challenge}`;
+
+  const url='https://wa.me/918309553962?text='+encodeURIComponent(msg);
+  window.open(url,'_blank');
 }
-loadTally();
+
+/* ========== NEW HERO: PARTICLE FIELD + PARALLAX ========== */
+(function(){
+  const canvas=document.getElementById('particles2');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let w,h,particles=[];
+  const COUNT=46;
+  function resize(){
+    const host=canvas.parentElement;
+    w=canvas.width=host.offsetWidth;
+    h=canvas.height=host.offsetHeight;
+  }
+  function init(){
+    particles=[];
+    for(let i=0;i<COUNT;i++){
+      particles.push({
+        x:Math.random()*w,y:Math.random()*h,
+        r:Math.random()*1.5+0.4,
+        vx:(Math.random()-0.5)*0.1,vy:(Math.random()-0.5)*0.1,
+        a:Math.random()*0.45+0.12,
+        hue:Math.random()>0.5?'26,255,156':'63,208,255'
+      });
+    }
+  }
+  function tick(){
+    if(w&&h){
+      ctx.clearRect(0,0,w,h);
+      for(const p of particles){
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0)p.x=w;if(p.x>w)p.x=0;
+        if(p.y<0)p.y=h;if(p.y>h)p.y=0;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle=`rgba(${p.hue},${p.a})`;
+        ctx.fill();
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  window.addEventListener('resize',()=>{resize();init();});
+  resize();init();tick();
+
+  const stage2=document.getElementById('stage2');
+  const stage2Inner=document.getElementById('stage2Inner');
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(stage2 && stage2Inner && !reduceMotion){
+    let mx=window.innerWidth/2,my=window.innerHeight/2,cx=mx,cy=my;
+    window.addEventListener('mousemove',(e)=>{mx=e.clientX;my=e.clientY;});
+    function raf(){
+      cx+=(mx-cx)*0.08;cy+=(my-cy)*0.08;
+      const rect=stage2.getBoundingClientRect();
+      const relX=(cx-(rect.left+rect.width/2))/rect.width;
+      const relY=(cy-(rect.top+rect.height/2))/rect.height;
+      const cl=(v)=>Math.max(-1,Math.min(1,v));
+      stage2Inner.style.transform=`rotateY(${cl(relX)*4}deg) rotateX(${-cl(relY)*4}deg) translate(${cl(relX)*5}px, ${cl(relY)*5}px)`;
+      requestAnimationFrame(raf);
+    }
+    raf();
+  }
+})();
 
 /* ========== CHAT BOT LOGIC ========== */
 let chatOpened=false;
