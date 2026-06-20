@@ -134,6 +134,41 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
 .val-card{padding:1.5rem;border:1px solid var(--border);border-radius:var(--radius)}
 .val-card h4{font-size:15px;font-weight:600;margin-bottom:0.4rem}
 .val-card p{font-size:13px;color:var(--text-sec);line-height:1.6;margin:0}
+
+/* ========== NEW: WHATSAPP FLOATING BUTTON ========== */
+.wa-fab{position:fixed;bottom:96px;right:24px;z-index:199;background:#25D366;color:#fff;border:none;width:52px;height:52px;border-radius:50%;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.15s}
+.wa-fab:hover{transform:scale(1.08)}
+.wa-tooltip{position:fixed;bottom:107px;right:84px;z-index:199;background:#1a1a1a;color:#fff;font-size:12px;padding:5px 10px;border-radius:6px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.2s}
+.wa-fab:hover + .wa-tooltip{opacity:1}
+
+/* ========== NEW: AI CHAT BOT ========== */
+.chat-fab{position:fixed;bottom:24px;right:24px;z-index:200;background:var(--green);color:#fff;border:none;width:52px;height:52px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(14,122,90,0.35);transition:transform 0.15s}
+.chat-fab:hover{transform:scale(1.08)}
+.chat-badge{position:absolute;top:-3px;right:-3px;background:#ef4444;color:#fff;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+.chat-window{position:fixed;bottom:86px;right:24px;z-index:200;width:340px;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.13);display:none;flex-direction:column;overflow:hidden;max-height:500px}
+.chat-window.open{display:flex}
+.chat-head{background:var(--green);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between}
+.chat-head-info{display:flex;align-items:center;gap:10px}
+.chat-avatar{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.chat-head h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:1px}
+.chat-head p{font-size:11px;color:rgba(255,255,255,0.75)}
+.chat-close{background:none;border:none;color:rgba(255,255,255,0.8);cursor:pointer;font-size:18px;padding:4px;line-height:1}
+.chat-msgs{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:10px;min-height:240px}
+.msg{max-width:82%;padding:9px 13px;border-radius:12px;font-size:13px;line-height:1.55}
+.msg.bot{background:var(--bg2);color:var(--text);border-bottom-left-radius:4px;align-self:flex-start}
+.msg.user{background:var(--green);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.msg.typing{background:var(--bg2);color:var(--text-sec);font-style:italic;align-self:flex-start;font-size:12px}
+.chat-quick{padding:0 1rem 0.5rem;display:flex;gap:6px;flex-wrap:wrap}
+.qbtn{font-size:11px;background:var(--green-tint);border:1px solid var(--green-light);color:var(--green);padding:4px 10px;border-radius:20px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.qbtn:hover{background:#c2eed9}
+.chat-input-row{padding:0.75rem 1rem;border-top:1px solid var(--border);display:flex;gap:8px}
+.chat-input-row input{flex:1;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;font-family:inherit;outline:none;color:var(--text)}
+.chat-input-row input:focus{border-color:var(--green)}
+.send-btn{background:var(--green);color:#fff;border:none;width:34px;height:34px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.send-btn:hover{background:#0B6649}
+/* CTA band WhatsApp button */
+.btn-wa-cta{background:#25D366;color:#fff;border:none;padding:13px 28px;border-radius:var(--radius);font-size:15px;cursor:pointer;font-weight:700;font-family:inherit;display:inline-flex;align-items:center;gap:8px;text-decoration:none;margin-left:12px}
+.btn-wa-cta:hover{background:#1ebe5d}
 </style>
 </head>
 <body>
@@ -252,6 +287,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
     <h2>Your revenue leak has a fix.<br>Let's grow deeper.</h2>
     <p>Book a free 30-minute strategy call. We'll show you exactly where you're losing money.</p>
     <button class="btn-white" onclick="goTo('contact')">Book free call — no obligation</button>
+    <a class="btn-wa-cta" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Depgrow%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services" target="_blank"><i class="ti ti-brand-whatsapp"></i>WhatsApp us</a>
     <p class="cta-note">No pitch. No pressure. Just clarity.</p>
   </div>
   <footer>
@@ -352,17 +388,44 @@ footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:960px;ma
     <h1 style="font-size:32px;font-weight:700;margin-bottom:0.5rem">Book a free strategy call.</h1>
     <p style="font-size:16px;color:var(--text-sec);margin-bottom:2rem;line-height:1.7">30 minutes. We find where your business is leaking revenue and what to build first. No pitch. No pressure.</p>
     <div id="con-form">
-      <iframe
-        data-tally-src="https://tally.so/embed/7RPzk6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-        loading="lazy"
-        width="100%"
-        height="500"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        title="Book a Free Strategy Call">
-      </iframe>
+      <iframe data-tally-src="https://tally.so/embed/7RPzk6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Book a Free Strategy Call"></iframe>
     </div>
+  </div>
+</div>
+
+<!-- ========== NEW: WHATSAPP FAB ========== -->
+<a class="wa-fab" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Depgrow%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services" target="_blank" title="Chat on WhatsApp">
+  <i class="ti ti-brand-whatsapp"></i>
+</a>
+<div class="wa-tooltip">Chat on WhatsApp</div>
+
+<!-- ========== NEW: AI CHAT BOT ========== -->
+<button class="chat-fab" onclick="toggleChat()" title="Chat with Depgrow AI" style="position:fixed">
+  <i class="ti ti-message-circle" id="chat-icon"></i>
+  <span class="chat-badge" id="chat-badge">1</span>
+</button>
+
+<div class="chat-window" id="chat-window">
+  <div class="chat-head">
+    <div class="chat-head-info">
+      <div class="chat-avatar">🤖</div>
+      <div>
+        <h4>Depgrow AI</h4>
+        <p>Ask me anything · Always online</p>
+      </div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()"><i class="ti ti-x"></i></button>
+  </div>
+  <div class="chat-msgs" id="chat-msgs"></div>
+  <div class="chat-quick" id="quick-btns">
+    <button class="qbtn" onclick="quickAsk('What services do you offer?')">Services</button>
+    <button class="qbtn" onclick="quickAsk('How much does it cost?')">Pricing</button>
+    <button class="qbtn" onclick="quickAsk('How fast can you go live?')">Timeline</button>
+    <button class="qbtn" onclick="quickAsk('Can you show me a demo?')">Demo</button>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chat-input" placeholder="Ask about services, pricing, timeline…" onkeydown="if(event.key==='Enter')sendChat()"/>
+    <button class="send-btn" onclick="sendChat()"><i class="ti ti-send"></i></button>
   </div>
 </div>
 
@@ -393,20 +456,103 @@ function goTo(id){
 }
 function tf(el){el.parentElement.classList.toggle('open');}
 function selLogo(card,name){document.querySelectorAll('.logo-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');document.getElementById('logo-sel-box').style.display='block';document.getElementById('logo-sel-txt').textContent='✓ '+name+' selected! Ready to build in Canva.';}
-
 function loadTally(){
   var d=document,w="https://tally.so/widgets/embed.js",
   v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
   if("undefined"!=typeof Tally)v();
-  else if(d.querySelector('script[src="'+w+'"]')==null){
-    var s=d.createElement("script");
-    s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);
+  else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);}else{v();}
+}
+loadTally();
+
+/* ========== CHAT BOT LOGIC ========== */
+let chatOpened=false;
+function toggleChat(){
+  const w=document.getElementById('chat-window');
+  const badge=document.getElementById('chat-badge');
+  const icon=document.getElementById('chat-icon');
+  if(!w.classList.contains('open')){
+    w.classList.add('open');
+    badge.style.display='none';
+    icon.className='ti ti-x';
+    if(!chatOpened){
+      chatOpened=true;
+      setTimeout(()=>{
+        addMsg('bot','👋 Hi! I\'m Depgrow\'s AI agent.\n\nI can tell you about our AI automations, voice agents, pricing, and how fast we can go live. What would you like to know?');
+      },300);
+    }
   } else {
-    v();
+    w.classList.remove('open');
+    icon.className='ti ti-message-circle';
   }
 }
-// Load Tally immediately on page load too, in case contact is the active page on load
-loadTally();
+function addMsg(role,text){
+  const msgs=document.getElementById('chat-msgs');
+  const div=document.createElement('div');
+  div.className='msg '+role;
+  div.style.whiteSpace='pre-line';
+  div.textContent=text;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function showTyping(){
+  const msgs=document.getElementById('chat-msgs');
+  const div=document.createElement('div');
+  div.className='msg typing';
+  div.id='typing-ind';
+  div.textContent='Typing…';
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+function removeTyping(){const t=document.getElementById('typing-ind');if(t)t.remove();}
+function quickAsk(text){
+  document.getElementById('quick-btns').style.display='none';
+  document.getElementById('chat-input').value=text;
+  sendChat();
+}
+async function sendChat(){
+  const input=document.getElementById('chat-input');
+  const text=input.value.trim();
+  if(!text)return;
+  document.getElementById('quick-btns').style.display='none';
+  addMsg('user',text);
+  input.value='';
+  showTyping();
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-6',
+        max_tokens:1000,
+        system:`You are the AI agent for Depgrow, an AI automation agency. You help potential clients understand what Depgrow builds and encourage them to book a free strategy call.
+
+WHAT DEPGROW BUILDS:
+- Revenue Capture System (₹60,000 one-time): AI voice agent 24/7, WhatsApp & SMS bot, CRM sync, lead qualification
+- Ops Efficiency System (₹1,00,000 one-time): 3-5 workflow automations, n8n/Make, reporting dashboard, team training
+- Web Capture System (₹50,000 one-time): High-converting landing page, lead capture, WhatsApp triggers, analytics
+
+Individual solutions from ₹14,999: instant lead follow-up, inbound AI receptionist, appointment booking bot, WhatsApp sequences, outbound AI caller, CRM auto-population, and more.
+
+KEY FACTS:
+- Live in 2 weeks
+- Fixed price, no surprises
+- No need to replace existing software
+- ROI measured in hours saved and revenue generated
+- Free 30-min strategy call available
+
+Be friendly, concise, and helpful. End responses with a nudge to book the free call. Keep replies under 100 words. If someone asks something outside your knowledge, invite them to book a call.`,
+        messages:[{role:'user',content:text}]
+      })
+    });
+    const data=await res.json();
+    removeTyping();
+    const reply=data.content&&data.content[0]&&data.content[0].text?data.content[0].text:'Let me connect you with our team directly — they can answer this best. Click "Book a call" in the nav!';
+    addMsg('bot',reply);
+  }catch(e){
+    removeTyping();
+    addMsg('bot','Something went wrong on my end. Please WhatsApp us or book a call — we respond within the hour!');
+  }
+}
 </script>
 </body>
 </html>
