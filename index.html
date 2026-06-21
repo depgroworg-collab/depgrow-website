@@ -1177,7 +1177,7 @@ function addMsg(role,text){
   msgs.scrollTop=msgs.scrollHeight;
 }
 function quickAsk(text){document.getElementById('quick-btns').style.display='none';document.getElementById('chat-input').value=text;sendChat();}
-function sendChat(){
+async function sendChat(){
   const input=document.getElementById('chat-input');
   const text=input.value.trim();
   if(!text)return;
@@ -1188,7 +1188,24 @@ function sendChat(){
   t.className='msg typing';t.id='typing';t.textContent='Typing…';
   document.getElementById('chat-msgs').appendChild(t);
   document.getElementById('chat-msgs').scrollTop=9999;
-  setTimeout(()=>{const ty=document.getElementById('typing');if(ty)ty.remove();addMsg('bot',getBotReply(text));},900+Math.random()*400);
+  try{
+    const res=await fetch('/api/chat',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text})
+    });
+    const data=await res.json();
+    const ty=document.getElementById('typing');if(ty)ty.remove();
+    if(data.content&&data.content[0]&&data.content[0].text){
+      addMsg('bot',data.content[0].text);
+    } else {
+      addMsg('bot','Sorry, something went wrong. Please try again or book a call directly!');
+    }
+  } catch(err){
+    const ty=document.getElementById('typing');if(ty)ty.remove();
+    addMsg('bot','Connection error. Please WhatsApp us or book a free call!');
+  }
+  document.getElementById('chat-msgs').scrollTop=9999;
 }
 </script>
 </body>
