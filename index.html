@@ -140,7 +140,7 @@ svg.connections2{position:absolute;inset:0;width:100%;height:100%;overflow:visib
 @media(max-width:980px){.stage2{max-width:380px;margin-top:2.5rem}}
 .ticker-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;white-space:nowrap;background:var(--bg2)}
 .ticker-inner{display:inline-flex;animation:tick 26s linear infinite;gap:3rem}
-@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 .ticker-item{font-size:13px;color:var(--text-sec);display:inline-flex;align-items:center;gap:8px;font-weight:500}
 .ticker-item i{color:var(--green);font-size:15px}
 .logo-strip{padding:3rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border)}
@@ -1079,7 +1079,7 @@ function closeMenu(){
 
 function tf(el){el.parentElement.classList.toggle('open');}
 
-function submitAudit(e){
+async function submitAudit(e){
   e.preventDefault();
   const n=document.getElementById('af-name').value.trim();
   const b=document.getElementById('af-business').value.trim();
@@ -1088,6 +1088,36 @@ function submitAudit(e){
   const t=document.getElementById('af-type').value;
   const s=document.getElementById('af-size').value;
   const c=document.getElementById('af-challenge').value.trim();
+
+  // 1. Show loading state on button
+  const btn=document.querySelector('.af-submit');
+  const origText=btn.innerHTML;
+  btn.innerHTML='<i class="ti ti-loader" style="animation:spin 1s linear infinite;display:inline-block"></i> Connecting you now…';
+  btn.disabled=true;
+
+  // 2. Trigger Vapi AI call immediately
+  try{
+    const callRes=await fetch('/api/call',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:n,phone:ph,business:b})
+    });
+    const callData=await callRes.json();
+    if(callData.success){
+      btn.innerHTML='✅ Call incoming! Check your phone.';
+      btn.style.background='#16A97D';
+      btn.disabled=false;
+    } else {
+      btn.innerHTML=origText;
+      btn.disabled=false;
+      alert('Call could not be placed. We will reach you on WhatsApp!');
+    }
+  } catch(err){
+    btn.innerHTML=origText;
+    btn.disabled=false;
+  }
+
+  // 3. Also send WhatsApp message (background)
   const msg=`Hi Depgrow, I'd like to book a Free Revenue Audit.\n\nName: ${n}\nBusiness: ${b}\nEmail: ${em}\nPhone: ${ph}\nBusiness Type: ${t}\nTeam Size: ${s}\nBiggest Challenge: ${c}`;
   window.open('https://wa.me/918309553962?text='+encodeURIComponent(msg),'_blank');
 }
