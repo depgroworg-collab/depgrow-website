@@ -79,6 +79,27 @@ export default async function handler(req, res) {
       }).catch(() => {}); // Don't fail if lead email fails
     }
 
+    // 3. Send WhatsApp notification to owner via Twilio Sandbox
+    const twilioSid = process.env.TWILIO_ACCOUNT_SID;
+    const twilioAuth = process.env.TWILIO_AUTH_TOKEN;
+
+    if (twilioSid && twilioAuth) {
+      const waMessage = `*New Depgrow Lead!*\n\n*Name:* ${name}\n*Business:* ${business}\n*Phone:* ${phone}\n*Email:* ${email}\n*Type:* ${type}\n*Team Size:* ${size}\n*Challenge:* ${challenge}\n\nAI Voice Agent already called them!`;
+
+      await fetch(`https://api.twilio.com/2010-04-01/Accounts/${twilioSid}/Messages.json`, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Basic ' + Buffer.from(`${twilioSid}:${twilioAuth}`).toString('base64'),
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          From: 'whatsapp:+14155238886',
+          To: 'whatsapp:+918309553962',
+          Body: waMessage,
+        }).toString(),
+      }).catch(err => console.error('WhatsApp notification error:', err));
+    }
+
     return res.status(200).json({ success: true });
 
   } catch (err) {
