@@ -528,7 +528,6 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem 2rem;max-width:960px
       <div class="logo-pill"><i class="ti ti-stethoscope"></i>CareFirst Clinics</div>
     </div>
   </div>
-  </div>
 </div></div>
 
 <div class="section" style="margin-top:5rem">
@@ -1130,6 +1129,7 @@ async function submitAudit(e){
   const t=document.getElementById('af-type').value;
   const s=document.getElementById('af-size').value;
   const c=document.getElementById('af-challenge').value.trim();
+  const msg=`Hi Depgrow, I'd like to book a Free Revenue Audit.\n\nName: ${n}\nBusiness: ${b}\nEmail: ${em}\nPhone: ${ph}\nBusiness Type: ${t}\nTeam Size: ${s}\nBiggest Challenge: ${c}`;
 
   // 1. Show loading state on button
   const btn=document.querySelector('.af-submit');
@@ -1167,7 +1167,6 @@ async function submitAudit(e){
   }).catch(()=>{});
 
   // 4. Also send WhatsApp message (background)
-  const msg=`Hi Depgrow, I'd like to book a Free Revenue Audit.\n\nName: ${n}\nBusiness: ${b}\nEmail: ${em}\nPhone: ${ph}\nBusiness Type: ${t}\nTeam Size: ${s}\nBiggest Challenge: ${c}`;
   window.open('https://wa.me/918309553962?text='+encodeURIComponent(msg),'_blank');
 }
 
@@ -1256,13 +1255,11 @@ function addMsg(role,text){
   msgs.scrollTop=msgs.scrollHeight;
 }
 function quickAsk(text){document.getElementById('quick-btns').style.display='none';document.getElementById('chat-input').value=text;sendChat();}
-// ── Animated Stats Counter ──
 function animateCounter(el, target, suffix, duration=1500){
   const start = performance.now();
   const update = (time) => {
     const elapsed = time - start;
     const progress = Math.min(elapsed / duration, 1);
-    // Ease out cubic
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = Math.round(eased * target);
     el.textContent = current + suffix;
@@ -1270,7 +1267,6 @@ function animateCounter(el, target, suffix, duration=1500){
   };
   requestAnimationFrame(update);
 }
-
 function initCounters(){
   const counters = document.querySelectorAll('[data-count]');
   if(!counters.length) return;
@@ -1287,7 +1283,6 @@ function initCounters(){
   counters.forEach(el => observer.observe(el));
 }
 document.addEventListener('DOMContentLoaded', initCounters);
-
 async function sendChat(){
   const input=document.getElementById('chat-input');
   const text=input.value.trim();
