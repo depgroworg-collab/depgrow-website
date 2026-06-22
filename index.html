@@ -83,7 +83,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop
 .mobile-menu-btn{background:none;border:none;padding:10px 0;font-size:15px;color:var(--text);cursor:pointer;font-family:inherit;text-align:left;border-bottom:1px solid var(--border)}
 .mobile-cta{background:var(--green);color:#fff;border:none;padding:12px;border-radius:8px;font-size:15px;cursor:pointer;font-weight:600;font-family:inherit;margin-top:8px}
 @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}
-.page{display:none}.page.active{display:block}
+.page{display:none;overflow-y:auto}.page.active{display:block}
 .hero2{position:relative;overflow:hidden;background:radial-gradient(ellipse 60% 50% at 18% 10%,rgba(26,255,156,0.10),transparent 60%),radial-gradient(ellipse 55% 45% at 85% 80%,rgba(63,208,255,0.08),transparent 60%),linear-gradient(180deg,#040a08 0%,#06120e 55%,#040a08 100%);padding:80px 2rem 70px}
 #particles2{position:absolute;inset:0;z-index:0;pointer-events:none}
 .hero2-grid{position:relative;z-index:2;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.05fr 0.95fr;gap:2rem;align-items:center}
@@ -392,7 +392,8 @@ footer{border-top:1px solid var(--border);padding:3rem 2rem 2rem;max-width:960px
 </style>
 </head>
 <body>
-<nav>
+<div id="top"></div>
+<nav id="main-nav">
   <a class="nav-brand" onclick="goTo('home')">
     <svg width="24" height="24" viewBox="0 0 22 22" fill="none"><path d="M4 16 C4 16 7 6 11 6 C15 6 18 16 18 16" stroke="#0E7A5A" stroke-width="1.6" stroke-linecap="round"/><path d="M8 11 C8 11 9.5 14 11 14 C12.5 14 14 11 14 11" stroke="#16A97D" stroke-width="1.6" stroke-linecap="round"/><circle cx="11" cy="6" r="1.8" fill="#0E7A5A"/></svg>
     <span><span class="dep">Dep</span><span class="grow">grow</span></span>
@@ -1101,10 +1102,12 @@ function fs(cat,btn){
 function goTo(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const pg=document.getElementById('page-'+id);
-  if(pg){pg.classList.add('active');}
-  if(id==='solutions')renderSols('all');
-  window.scrollTo(0,0);
+  if(pg){
+    pg.classList.add('active');
+    if(id==='solutions')renderSols('all');
+  }
   closeMenu();
+  document.getElementById('top').scrollIntoView();
 }
 
 function toggleMenu(){
